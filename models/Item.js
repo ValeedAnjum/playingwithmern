@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 
 const ItemSchema = new mongoose.Schema({
     brand:{
-        type:String,
-        required:true
+        type:String
     },
     category:{
         type:String,

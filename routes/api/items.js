@@ -11,7 +11,18 @@ router.get('/', (req, res) => res.send('Item Route'));
 //@route    GET API/users 
 //@des      Test Route 
 //@access   Public
-router.post('/item', async (req,res) => {
+router.post('/item',[
+  check('brand','brand name is required').exists(),
+  check('category','category is required').exists(),
+  check('name','name is required').exists(),
+  check('price','price is required').exists(),
+  check('proid','proid is required').exists(),
+  check('proimg','proimg is required').exists(),
+] ,async (req,res) => {
+  const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
   const {brand,category,date,name,price,proid,proimg} = req.body;
   try {
     const item = new Item({brand,category,date,name,price,proid,proimg});
