@@ -11,7 +11,7 @@ app.use(express.json({extended:false}));
 app.get('/',(req,res) => res.send('API Running P'));
 
 //define routes
-app.use('/api/items',require('./routes/api/items'));
+app.use('/api/auth',require('./routes/api/auth'));
 
 const PORT = process.env.PORT || 5000;
 
