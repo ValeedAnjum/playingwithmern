@@ -90,6 +90,26 @@ router.put('/unlike/:id', auth , async (req,res) => {
     }
 })
 
-
+// @route    POST api/jobs/update 
+// @des      updating the existing post data
+// @access   Private
+router.post('/update/:id', auth , async (req,res) => {
+    try {
+        const job = await Job.findById(req.params.id);
+        if(!job){
+            return res.status(400).json({msg:'Post does not exists'});
+        }
+        const {title, pricefrom, priceto, description, skills} = req.body;
+        if(title) job.title = title;
+        if(pricefrom) job.pricefrom = pricefrom;
+        if(priceto) job.priceto = priceto;
+        if(description) job.description = description;
+        if(skills.length > 0) job.skills = skills;
+        await job.save();
+        res.json(job);
+    } catch (err) {
+        res.status(500).send('Server Error');       
+    }
+})
 
 module.exports = router;
