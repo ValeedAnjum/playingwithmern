@@ -68,7 +68,27 @@ router.put('/like/:id', auth, async(req, res) => {
         res.status(500).send('Server Error');
     }
 })
-
+// @route    POST api/jobs/unlike 
+// @des      like the post and getting back upto date data
+// @access   Private
+router.put('/unlike/:id', auth , async (req,res) => {
+    try {
+        const job = await Job.findById(req.params.id);
+        
+        if(
+            job.likes.filter(like => like.user.toString() === req.user.id).length === 0
+        ){
+            return res.status(400).json({msg:'The post is not liked yet'});
+        }
+        // Get remove index
+        const removeIndex = job.likes.map(like => like.user.toString()).indexOf(req.user.id);
+        job.likes.splice(removeIndex,1);
+        await job.save();
+        res.json(job);
+    } catch (err) {
+        res.status(500).send('Server Error');
+    }
+})
 
 
 
