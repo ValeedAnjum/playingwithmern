@@ -133,7 +133,7 @@ router.delete('/delete/:id', auth , async (req,res) => {
 
 // @route    get api/jobs/:quntify/:id 
 // @des      get jobs by quntity and job id
-// @access   public
+// @access   publics
 router.get('/:qun/:id', async (req,res) => {
     try {
         const jobs = await Job.find({'_id':{'$gt':req.params.id.toString()}}).sort({'_id':1}).limit(Number(req.params.qun));
