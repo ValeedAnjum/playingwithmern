@@ -116,18 +116,31 @@ router.post('/update/:id', auth , async (req,res) => {
 // @des      delete job
 // @access   Private
 router.delete('/delete/:id', auth , async (req,res) => {
-    const job = await Job.findById(req.params.id);
-    if(!job){
-        return res.status(400).json({msg:'job does not exists'});
+    try {
+        const job = await Job.findById(req.params.id);
+        if(!job){
+            return res.status(400).json({msg:'job does not exists'});
+        }
+        if(job.user.toString() !== req.user.id){
+            return res.status(400).json({msg:'Your not authorized'});
+        }
+        await job.remove();
+        res.json(job);
+    } catch (err) {
+        res.status(500).send('Server Error');
     }
-    if(job.user.toString() !== req.user.id){
-        return res.status(400).json({msg:'Your not authorized'});
-    }
-    await job.remove();
-    res.json(job);
 })
 
 // @route    get api/jobs/:quntify/:id 
 // @des      get jobs by quntity and job id
 // @access   public
+router.get('/:qun/:id', async (req,res) => {
+    try {
+        const jobs = await Job.find({'_id':{'$gt':req.params.id.toString()}}).sort({'_id':1}).limit(Number(req.params.qun));
+        res.json(jobs);
+    } catch (err) {
+        res.status(500).send('Server Error');
+    }    
+})
+
 module.exports = router;
