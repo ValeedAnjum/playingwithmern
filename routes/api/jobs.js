@@ -142,5 +142,15 @@ router.get('/:qun/:id', async (req,res) => {
         res.status(500).send('Server Error');
     }    
 })
-
+// @route    get api/jobs/:quntify/:id 
+// @des      get jobs by quntity and job id
+// @access   publics
+router.get('/:qun', async (req,res) => {
+    try {
+        const jobs = await Job.find({}).sort({'_id':1}).limit(Number(req.params.qun));
+        res.json(jobs);
+    } catch (err) {
+        res.status(500).send('Server Error');
+    }
+})
 module.exports = router;
