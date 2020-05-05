@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import UserData from './UserData'
+import Suggestion from './Suggestion'
 const Home = props => {
     return (
         <main>
@@ -9,103 +11,8 @@ const Home = props => {
                         <div className="row">
                             <div className="col-lg-3 col-md-4 pd-left-none no-pd">
                                 <div className="main-left-sidebar no-margin">
-                                    <div className="user-data full-width">
-                                        <div className="user-profile">
-                                            <div className="username-dt">
-                                                <div className="usr-pic">
-                                                    <img src="http://via.placeholder.com/100x100" alt=""/>
-                                                </div>
-                                            </div>
-                                            <div className="user-specs">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer at Self Employed</span>
-                                            </div>
-                                        </div>
-                                        <ul className="user-fw-status">
-                                            <li>
-                                                <h4>Following</h4>
-                                                <span>34</span>
-                                            </li>
-                                            <li>
-                                                <h4>Followers</h4>
-                                                <span>155</span>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="">View Profile</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className="suggestions full-width">
-                                        <div className="sd-title">
-                                            <h3>Suggestions</h3>
-                                            <i className="la la-ellipsis-v"></i>
-                                        </div>
-                                        <div className="suggestions-list">
-                                            <div className="suggestion-usd">
-                                                <img src="http://via.placeholder.com/35x35" alt=""/>
-                                                <div className="sgt-text">
-                                                    <h4>Jessica William</h4>
-                                                    <span>Graphic Designer</span>
-                                                </div>
-                                                <span>
-                                                    <i className="la la-plus"></i>
-                                                </span>
-                                            </div>
-                                            <div className="suggestion-usd">
-                                                <img src="http://via.placeholder.com/35x35" alt=""/>
-                                                <div className="sgt-text">
-                                                    <h4>John Doe</h4>
-                                                    <span>PHP Developer</span>
-                                                </div>
-                                                <span>
-                                                    <i className="la la-plus"></i>
-                                                </span>
-                                            </div>
-                                            <div className="suggestion-usd">
-                                                <img src="http://via.placeholder.com/35x35" alt=""/>
-                                                <div className="sgt-text">
-                                                    <h4>Poonam</h4>
-                                                    <span>Wordpress Developer</span>
-                                                </div>
-                                                <span>
-                                                    <i className="la la-plus"></i>
-                                                </span>
-                                            </div>
-                                            <div className="suggestion-usd">
-                                                <img src="http://via.placeholder.com/35x35" alt=""/>
-                                                <div className="sgt-text">
-                                                    <h4>Bill Gates</h4>
-                                                    <span>C &amp; C++ Developer</span>
-                                                </div>
-                                                <span>
-                                                    <i className="la la-plus"></i>
-                                                </span>
-                                            </div>
-                                            <div className="suggestion-usd">
-                                                <img src="http://via.placeholder.com/35x35" alt=""/>
-                                                <div className="sgt-text">
-                                                    <h4>Jessica William</h4>
-                                                    <span>Graphic Designer</span>
-                                                </div>
-                                                <span>
-                                                    <i className="la la-plus"></i>
-                                                </span>
-                                            </div>
-                                            <div className="suggestion-usd">
-                                                <img src="http://via.placeholder.com/35x35" alt=""/>
-                                                <div className="sgt-text">
-                                                    <h4>John Doe</h4>
-                                                    <span>PHP Developer</span>
-                                                </div>
-                                                <span>
-                                                    <i className="la la-plus"></i>
-                                                </span>
-                                            </div>
-                                            <div className="view-more">
-                                                <a href="#" title="">View More</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <UserData/>
+                                    <Suggestion />
                                     <div className="tags-sec full-width">
                                         <ul>
                                             <li>
@@ -268,17 +175,27 @@ const Home = props => {
                                                 <i className="la la-ellipsis-v"></i>
                                             </div>
                                             <div className="profiles-slider slick-initialized slick-slider">
-                                                <span className="slick-previous slick-arrow" style={{display: 'inline'}}></span>
+                                                <span
+                                                    className="slick-previous slick-arrow"
+                                                    style={{
+                                                    display: 'inline'
+                                                }}></span>
                                                 <div className="slick-list draggable">
                                                     <div
                                                         className="slick-track"
-                                                        style={{opacity: '1', width: '2490px', transform: 'translate3d(-664px, 0px, 0px)'}}>
+                                                        style={{
+                                                        opacity: '1',
+                                                        width: '2490px',
+                                                        transform: 'translate3d(-664px, 0px, 0px)'
+                                                    }}>
                                                         <div
                                                             className="user-profy slick-slide slick-cloned"
                                                             data-slick-index="-3"
                                                             aria-hidden="true"
                                                             tabIndex="-1"
-                                                            style={{width: '158px'}}>
+                                                            style={{
+                                                            width: '158px'
+                                                        }}>
                                                             <img src="http://via.placeholder.com/57x57" alt=""/>
                                                             <h3>John Doe</h3>
                                                             <span>Graphic Designer</span>
@@ -301,7 +218,9 @@ const Home = props => {
                                                             data-slick-index="-2"
                                                             aria-hidden="true"
                                                             tabIndex="-1"
-                                                            style={{width: '158px'}}>
+                                                            style={{
+                                                            width: '158px'
+                                                        }}>
                                                             <img src="http://via.placeholder.com/57x57" alt=""/>
                                                             <h3>John Doe</h3>
                                                             <span>Graphic Designer</span>
@@ -323,7 +242,9 @@ const Home = props => {
                                                             data-slick-index="-1"
                                                             aria-hidden="true"
                                                             tabIndex="-1"
-                                                            style={{width: '158px'}}>
+                                                            style={{
+                                                            width: '158px'
+                                                        }}>
                                                             <img src="http://via.placeholder.com/57x57" alt=""/>
                                                             <h3>John Doe</h3>
                                                             <span>Graphic Designer</span>
@@ -346,7 +267,9 @@ const Home = props => {
                                                             data-slick-index="0"
                                                             aria-hidden="true"
                                                             tabIndex="-1"
-                                                            style={{width: '158px'}}>
+                                                            style={{
+                                                            width: '158px'
+                                                        }}>
                                                             <img src="http://via.placeholder.com/57x57" alt=""/>
                                                             <h3>John Doe</h3>
                                                             <span>Graphic Designer</span>
@@ -369,7 +292,9 @@ const Home = props => {
                                                             data-slick-index="1"
                                                             aria-hidden="false"
                                                             tabIndex="0"
-                                                            style={{width: '158px'}}>
+                                                            style={{
+                                                            width: '158px'
+                                                        }}>
                                                             <img src="http://via.placeholder.com/57x57" alt=""/>
                                                             <h3>John Doe</h3>
                                                             <span>Graphic Designer</span>
@@ -392,7 +317,9 @@ const Home = props => {
                                                             data-slick-index="2"
                                                             aria-hidden="false"
                                                             tabIndex="0"
-                                                            style={{width: '158px'}}>
+                                                            style={{
+                                                            width: '158px'
+                                                        }}>
                                                             <img src="http://via.placeholder.com/57x57" alt=""/>
                                                             <h3>John Doe</h3>
                                                             <span>Graphic Designer</span>
@@ -415,7 +342,9 @@ const Home = props => {
                                                             data-slick-index="3"
                                                             aria-hidden="false"
                                                             tabIndex="0"
-                                                            style={{width: '158px'}}>
+                                                            style={{
+                                                            width: '158px'
+                                                        }}>
                                                             <img src="http://via.placeholder.com/57x57" alt=""/>
                                                             <h3>John Doe</h3>
                                                             <span>Graphic Designer</span>
@@ -437,7 +366,9 @@ const Home = props => {
                                                             data-slick-index="4"
                                                             aria-hidden="true"
                                                             tabIndex="-1"
-                                                            style={{width: '158px'}}>
+                                                            style={{
+                                                            width: '158px'
+                                                        }}>
                                                             <img src="http://via.placeholder.com/57x57" alt=""/>
                                                             <h3>John Doe</h3>
                                                             <span>Graphic Designer</span>
@@ -460,7 +391,9 @@ const Home = props => {
                                                             data-slick-index="5"
                                                             aria-hidden="true"
                                                             tabIndex="-1"
-                                                            style={{width: '158px'}}>
+                                                            style={{
+                                                            width: '158px'
+                                                        }}>
                                                             <img src="http://via.placeholder.com/57x57" alt=""/>
                                                             <h3>John Doe</h3>
                                                             <span>Graphic Designer</span>
@@ -483,7 +416,9 @@ const Home = props => {
                                                             data-slick-index="6"
                                                             aria-hidden="true"
                                                             tabIndex="-1"
-                                                            style={{width: '158px'}}>
+                                                            style={{
+                                                            width: '158px'
+                                                        }}>
                                                             <img src="http://via.placeholder.com/57x57" alt=""/>
                                                             <h3>John Doe</h3>
                                                             <span>Graphic Designer</span>
@@ -506,7 +441,9 @@ const Home = props => {
                                                             data-slick-index="7"
                                                             aria-hidden="true"
                                                             tabIndex="-1"
-                                                            style={{width: '158px'}}>
+                                                            style={{
+                                                            width: '158px'
+                                                        }}>
                                                             <img src="http://via.placeholder.com/57x57" alt=""/>
                                                             <h3>John Doe</h3>
                                                             <span>Graphic Designer</span>
@@ -528,7 +465,9 @@ const Home = props => {
                                                             data-slick-index="8"
                                                             aria-hidden="true"
                                                             tabIndex="-1"
-                                                            style={{width: '158px'}}>
+                                                            style={{
+                                                            width: '158px'
+                                                        }}>
                                                             <img src="http://via.placeholder.com/57x57" alt=""/>
                                                             <h3>John Doe</h3>
                                                             <span>Graphic Designer</span>
@@ -550,7 +489,9 @@ const Home = props => {
                                                             data-slick-index="9"
                                                             aria-hidden="true"
                                                             tabIndex="-1"
-                                                            style={{width: '158px'}}>
+                                                            style={{
+                                                            width: '158px'
+                                                        }}>
                                                             <img src="http://via.placeholder.com/57x57" alt=""/>
                                                             <h3>John Doe</h3>
                                                             <span>Graphic Designer</span>
@@ -573,7 +514,9 @@ const Home = props => {
                                                             data-slick-index="10"
                                                             aria-hidden="true"
                                                             tabIndex="-1"
-                                                            style={{width: '158px'}}>
+                                                            style={{
+                                                            width: '158px'
+                                                        }}>
                                                             <img src="http://via.placeholder.com/57x57" alt=""/>
                                                             <h3>John Doe</h3>
                                                             <span>Graphic Designer</span>
@@ -595,7 +538,9 @@ const Home = props => {
                                                             data-slick-index="11"
                                                             aria-hidden="true"
                                                             tabIndex="-1"
-                                                            style={{width: '158px'}}>
+                                                            style={{
+                                                            width: '158px'
+                                                        }}>
                                                             <img src="http://via.placeholder.com/57x57" alt=""/>
                                                             <h3>John Doe</h3>
                                                             <span>Graphic Designer</span>
@@ -614,7 +559,11 @@ const Home = props => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <span className="slick-nexti slick-arrow" style={{display: 'inline'}}></span>
+                                                <span
+                                                    className="slick-nexti slick-arrow"
+                                                    style={{
+                                                    display: 'inline'
+                                                }}></span>
                                             </div>
                                         </div>
                                         <div className="post-bar">
