@@ -1,13 +1,14 @@
 import React from 'react'
 
-const PostBar = () => {
+const PostBar = ({Post,deletePost}) => {
+    const { description , likes , pricefrom , priceto , skills , title , user , _id } = Post;
     return (
         <div className="post-bar">
             <div className="post_topbar">
                 <div className="usy-dt">
                     <img src="http://via.placeholder.com/50x50" alt=""/>
                     <div className="usy-name">
-                        <h3>John Doe</h3>
+                        <h3>user</h3>
                         <span><img src="images/clock.png" alt=""/>3 min ago</span>
                     </div>
                 </div>
@@ -20,7 +21,7 @@ const PostBar = () => {
                             <a href="#" title="">Edit Post</a>
                         </li>
                         <li>
-                            <a href="#" title="">Unsaved</a>
+                            <a href="#" title="" onClick={() => deletePost(_id)}>Delete</a>
                         </li>
                         <li>
                             <a href="#" title="">Unbid</a>
@@ -57,35 +58,28 @@ const PostBar = () => {
                 </ul>
             </div>
             <div className="job_descp">
-                <h3>Senior Wordpress Developer</h3>
+                <h3>{title}</h3>
                 <ul className="job-dt">
                     <li>
                         <a href="#" title="">Full Time</a>
                     </li>
                     <li>
-                        <span>$30 / hr</span>
+                        <span>${priceto} / hr</span>
                     </li>
                 </ul>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus
-                    hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet...
+                <p>{description}...
                     <a href="#" title="">view more</a>
                 </p>
                 <ul className="skill-tags">
-                    <li>
-                        <a href="#" title="">HTML</a>
-                    </li>
-                    <li>
-                        <a href="#" title="">PHP</a>
-                    </li>
-                    <li>
-                        <a href="#" title="">CSS</a>
-                    </li>
-                    <li>
-                        <a href="#" title="">Javascript</a>
-                    </li>
-                    <li>
-                        <a href="#" title="">Wordpress</a>
-                    </li>
+                    {
+                        skills.map((skill,index) => {
+                            return (
+                                <li key={index}>
+                                    <a href="#" title="">{skill}</a>
+                                </li>
+                            );
+                        })
+                    }
                 </ul>
             </div>
             <div className="job-status-bar">

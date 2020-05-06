@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import { DummyReducer } from './Dummy';
+import { PostReducer } from './PostReducer';
 
 export const RootReducer = combineReducers({
-    Dummy:DummyReducer
+    Post:PostReducer
 })

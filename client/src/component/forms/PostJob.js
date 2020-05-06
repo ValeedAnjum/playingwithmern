@@ -2,7 +2,7 @@ import React from 'react'
 
 const PostJob = () => {
     return (
-        <div className="post-popup job_post active">
+        <div className="post-popup job_post">
 			<div className="post-project">
 				<h3>Post a job</h3>
 				<div className="post-project-fields">
@@ -44,7 +44,6 @@ const PostJob = () => {
 							<div className="col-lg-12">
 								<ul>
 									<li><button className="active" type="submit" value="post">Post</button></li>
-									<li><a href="#" title="">Cancel</a></li>
 								</ul>
 							</div>
 						</div>
