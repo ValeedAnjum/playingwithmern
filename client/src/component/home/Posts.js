@@ -5,12 +5,13 @@ import PostBar from './PostBar';
 import Loader from './Loader';
 class Posts extends Component {
     componentDidMount(){
+        console.log('C');
         this.props.getPosts();
     }
     render(){
         const { getPosts , posts , deletePost } = this.props;
         return (
-            <div onClick={getPosts}>
+            <div >
                 {
                     !posts ? <Loader />:null
                 }
@@ -31,7 +32,7 @@ const mapState = state => {
 }
 const mapDispatch = dispatch => {
     return {
-        getPosts:() => dispatch(getPosts),
+        getPosts:() => dispatch(getPosts()),
         deletePost:id => dispatch(deletePost(id))
     }
 }

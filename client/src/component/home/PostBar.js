@@ -1,7 +1,11 @@
 import React from 'react'
 
-const PostBar = ({Post,deletePost}) => {
+const PostBar = ({ Post , deletePost }) => {
     const { description , likes , pricefrom , priceto , skills , title , user , _id } = Post;
+    const DeletePost = (event,id) => {
+        event.preventDefault();
+        deletePost(id);
+    }
     return (
         <div className="post-bar">
             <div className="post_topbar">
@@ -21,7 +25,7 @@ const PostBar = ({Post,deletePost}) => {
                             <a href="#" title="">Edit Post</a>
                         </li>
                         <li>
-                            <a href="#" title="" onClick={() => deletePost(_id)}>Delete</a>
+                            <a href="#" title="" onClick={(e) => DeletePost(e,_id)}>Delete</a>
                         </li>
                         <li>
                             <a href="#" title="">Unbid</a>
