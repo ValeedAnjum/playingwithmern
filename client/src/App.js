@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import Navbar from './component/navbar/Navbar';
 import Home from './component/home/Home';
 import store from './store/store';
+import LogIn from './component/auth/LogIn';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/profiles"  render={() => <h1>profiles</h1>} />
         <Route path="/jobs"  render={() => <h1>jobs</h1>} />
         <Route path="/messages"  render={() => <h1>messages</h1>} />
+        <Route path="/login"  component={LogIn} />
       </Switch>
     </BrowserRouter>
     </Provider>
