@@ -8,6 +8,10 @@ export const getPosts = () => async dispatch => {
     }
 }
 
+export const savePost = data => async dispatch => {
+    console.log(data);
+}
+
 export const deletePost = id => async dispatch => {
     try {
         console.log(id);

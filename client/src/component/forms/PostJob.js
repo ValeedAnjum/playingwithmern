@@ -3,15 +3,21 @@ import React , { useState } from 'react'
 const PostJob = ({ClearAllModelsAndPayloads}) => {
 	const [form, setform] = useState({
 		title:"",
-		category:"",
-		skills:"",
-		price:"",
-		time:"",
-		des:""
+		pricefrom:0,
+		priceto:0,
+		description:"",
+		skills:""
 	})
+	const { title, pricefrom , priceto , description ,skills } = form;
 	const onChangeHandler = e => {
-		console.log(e.target.name);
-		console.log(e.target.value);
+		setform({ ...form , [e.target.name]:e.target.value});
+	}
+	const onSumit = e => {
+		e.preventDefault();
+		const formData = {...form};
+		const skills = formData.skills.split(",").map(skill => skill.trim());
+		formData.skills = skills;
+		console.log(formData);
 	}
     return (
         <div className="post-popup job_post active">
@@ -21,11 +27,11 @@ const PostJob = ({ClearAllModelsAndPayloads}) => {
 					<form>
 						<div className="row">
 							<div className="col-lg-12">
-								<input type="text" name="title" placeholder="Title" onChange={onChangeHandler} />
+								<input type="text" name="title" placeholder="Title" value={title} onChange={onChangeHandler} />
 							</div>
 							<div className="col-lg-12">
 								<div className="inp-field">
-									<select onChange={onChangeHandler} name="category">
+									<select>
 										<option>Category</option>
 										<option>Category 1</option>
 										<option>Category 2</option>
@@ -34,28 +40,26 @@ const PostJob = ({ClearAllModelsAndPayloads}) => {
 								</div>
 							</div>
 							<div className="col-lg-12">
-								<input type="text" name="skills" placeholder="Skills" onChange={onChangeHandler} />
+								<input type="text" name="skills" placeholder="Skills" value={skills} onChange={onChangeHandler} />
 							</div>
 							<div className="col-lg-6">
 								<div className="price-br">
-									<input type="text" name="price" placeholder="Price" onChange={onChangeHandler} />
+									<input type="number" name="pricefrom" value={pricefrom} placeholder="Price from" onChange={onChangeHandler} />
 									<i className="la la-dollar"></i>
 								</div>
 							</div>
 							<div className="col-lg-6">
-								<div className="inp-field">
-									<select onChange={onChangeHandler} name="time">
-										<option>Full Time</option>
-										<option>Half time</option>
-									</select>
+								<div className="price-br">
+									<input type="number" name="priceto" value={priceto} placeholder="Price to" onChange={onChangeHandler} />
+									<i className="la la-dollar"></i>
 								</div>
 							</div>
 							<div className="col-lg-12">
-								<textarea name="des" placeholder="Description" onChange={onChangeHandler}></textarea>
+								<textarea name="description" placeholder="Description" value={description} onChange={onChangeHandler}></textarea>
 							</div>
 							<div className="col-lg-12">
 								<ul>
-									<li><button className="active" type="submit" value="post">Post</button></li>
+									<li><button className="active" type="submit" onClick={onSumit} value="post">Post</button></li>
 								</ul>
 							</div>
 						</div>
