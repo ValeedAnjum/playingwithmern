@@ -5,7 +5,6 @@ import PostBar from './PostBar';
 import Loader from './Loader';
 class Posts extends Component {
     componentDidMount(){
-        console.log('C');
         this.props.getPosts();
     }
     render(){

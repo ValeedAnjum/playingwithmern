@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
-
-const Navbar = props => {
+import { connect } from 'react-redux';
+import { logout } from '../../store/actions/AuthActions';
+const Navbar = ({Logout}) => {
     return (
         <header>
             <div className="container">
@@ -73,9 +74,9 @@ const Navbar = props => {
                                 
                             </li>
                             <li>
-                                <NavLink to="/messages">
+                                <NavLink to="/messages" onClick={Logout}>
                                     <span><img src="images/icon6.png" alt=""/></span>
-                                    Messages
+                                    Logout
                                 </NavLink>
                                 <div className="notification-box msg">
                                     <div className="nt-title">
@@ -257,4 +258,10 @@ const Navbar = props => {
 
 Navbar.propTypes = {}
 
-export default Navbar
+const mapDispatch = dispatch => {
+    return {
+        Logout:() => dispatch(logout())
+    }
+}
+
+export default connect(null,mapDispatch)(Navbar)

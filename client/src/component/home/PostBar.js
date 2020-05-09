@@ -17,7 +17,7 @@ const PostBar = ({ Post , deletePost }) => {
                     </div>
                 </div>
                 <div className="ed-opts">
-                    <a href="#" title="" className="ed-opts-open">
+                    <a href="#" title="" className="ed-opts-open" onClick={e => e.preventDefault()}>
                         <i className="la la-ellipsis-v"></i>
                     </a>
                     <ul className="ed-options">

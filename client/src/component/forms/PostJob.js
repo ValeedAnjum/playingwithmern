@@ -2,7 +2,7 @@ import React from 'react'
 
 const PostJob = () => {
     return (
-        <div className="post-popup job_post">
+        <div className="post-popup job_post active">
 			<div className="post-project">
 				<h3>Post a job</h3>
 				<div className="post-project-fields">
