@@ -1,6 +1,18 @@
-import React from 'react'
+import React , { useState } from 'react'
 
 const PostJob = ({ClearAllModelsAndPayloads}) => {
+	const [form, setform] = useState({
+		title:"",
+		category:"",
+		skills:"",
+		price:"",
+		time:"",
+		des:""
+	})
+	const onChangeHandler = e => {
+		console.log(e.target.name);
+		console.log(e.target.value);
+	}
     return (
         <div className="post-popup job_post active">
 			<div className="post-project">
@@ -9,11 +21,11 @@ const PostJob = ({ClearAllModelsAndPayloads}) => {
 					<form>
 						<div className="row">
 							<div className="col-lg-12">
-								<input type="text" name="title" placeholder="Title" />
+								<input type="text" name="title" placeholder="Title" onChange={onChangeHandler} />
 							</div>
 							<div className="col-lg-12">
 								<div className="inp-field">
-									<select>
+									<select onChange={onChangeHandler} name="category">
 										<option>Category</option>
 										<option>Category 1</option>
 										<option>Category 2</option>
@@ -22,24 +34,24 @@ const PostJob = ({ClearAllModelsAndPayloads}) => {
 								</div>
 							</div>
 							<div className="col-lg-12">
-								<input type="text" name="skills" placeholder="Skills" />
+								<input type="text" name="skills" placeholder="Skills" onChange={onChangeHandler} />
 							</div>
 							<div className="col-lg-6">
 								<div className="price-br">
-									<input type="text" name="price1" placeholder="Price" />
+									<input type="text" name="price" placeholder="Price" onChange={onChangeHandler} />
 									<i className="la la-dollar"></i>
 								</div>
 							</div>
 							<div className="col-lg-6">
 								<div className="inp-field">
-									<select>
+									<select onChange={onChangeHandler} name="time">
 										<option>Full Time</option>
 										<option>Half time</option>
 									</select>
 								</div>
 							</div>
 							<div className="col-lg-12">
-								<textarea name="description" placeholder="Description"></textarea>
+								<textarea name="des" placeholder="Description" onChange={onChangeHandler}></textarea>
 							</div>
 							<div className="col-lg-12">
 								<ul>
