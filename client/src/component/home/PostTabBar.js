@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PostTabBar = () => {
+const PostTabBar = ({ OpenPostJobForNewPost }) => {
     return (
         <div className="post-topbar">
             <div className="user-picy">
@@ -9,10 +9,10 @@ const PostTabBar = () => {
             <div className="post-st">
                 <ul>
                     <li>
-                        <a className="post_project" href="#" title="">Post a Project</a>
+                        <a className="" href="#" title="" onClick={OpenPostJobForNewPost}>Post a Project</a>
                     </li>
                     <li>
-                        <a className="post-jb active" href="#" title="">Post a Job</a>
+                        <a className="" href="#" title="" onClick={OpenPostJobForNewPost}>Post a Job</a>
                     </li>
                 </ul>
             </div>

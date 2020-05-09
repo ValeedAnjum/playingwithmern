@@ -10,6 +10,7 @@ import Register from './component/auth/Register';
 import PrivateRoute from './component/routing/PrivateRoute';
 import setAuthToken from './component/util/setAuthToken';
 import { loadUser } from './store/actions/AuthActions';
+import ModelManager from './component/Models/ModelManager';
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
@@ -21,6 +22,7 @@ function App() {
     <Provider store={store}>
     <BrowserRouter>
       <Navbar />
+      <ModelManager />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/companies"  render={() => <h1>companies</h1>} />

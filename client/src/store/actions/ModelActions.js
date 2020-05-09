@@ -1,3 +1,3 @@
-export const openJobPostModel = () => dispatch => {
+export const OpenPostJobForNewPost = () => dispatch => {
     dispatch({type:'OpenPostJobForNewPost'})
 }

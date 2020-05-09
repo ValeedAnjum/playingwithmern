@@ -1,14 +1,27 @@
 import React from 'react'
-import { Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 import PostJob from '../forms/PostJob';
 
-const ModelManager = ({ ModelName , payload }) => {
+const ModelManager = ({ ModelName , payload , ClearAllModelsAndPayloads }) => {
     switch ( ModelName ){
         case 'OpenPostJobForNewPost':
-            return <PostJob />
+            return <PostJob ClearAllModelsAndPayloads={ClearAllModelsAndPayloads} />
+        case 'ClearAllModelsAndPayloads':
+            return null;
         default:
             return null;
     }
 }
 
-export default ModelManager;
+const mapState = state => {
+    return {
+        ModelName:state.Model.ModelName,
+        payload:state.Model.payload
+    }
+}
+const mapDispatch = dispatch => {
+    return {
+        ClearAllModelsAndPayloads:() => dispatch({type:'ClearAllModelsAndPayloads'})
+    }
+}
+export default connect( mapState , mapDispatch )(ModelManager);

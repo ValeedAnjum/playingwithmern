@@ -5,7 +5,9 @@ import Suggestion from './Suggestion'
 import PostTabBar from './PostTabBar'
 import WidgetJob from './WidgetJob'
 import Posts from './Posts'
+import { OpenPostJobForNewPost } from '../../store/actions/ModelActions';
 const Home = props => {
+    const { OpenPostJobForNewPost  } = props;
     return (
         <React.Fragment>
             <main>
@@ -21,7 +23,8 @@ const Home = props => {
                                 </div>
                                 <div className="col-lg-6 col-md-8 no-pd">
                                     <div className="main-ws-sec">
-                                        <PostTabBar/>
+                                        <PostTabBar 
+                                        OpenPostJobForNewPost={OpenPostJobForNewPost} />
                                         <div className="posts-section">
                                             <Posts />
                                         </div>
@@ -41,5 +44,14 @@ const Home = props => {
     )
 }
 
+const mapState = state => {
+    return {
 
-export default Home;
+    }
+}
+const mapDispatch = dispatch => {
+    return {
+        OpenPostJobForNewPost:() => dispatch(OpenPostJobForNewPost())
+    }
+}
+export default connect(mapState,mapDispatch)(Home);

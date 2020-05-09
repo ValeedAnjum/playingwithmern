@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PostJob = () => {
+const PostJob = ({ClearAllModelsAndPayloads}) => {
     return (
         <div className="post-popup job_post active">
 			<div className="post-project">
@@ -49,7 +49,9 @@ const PostJob = () => {
 						</div>
 					</form>
 				</div>
-				<a href="#" title=""><i className="la la-times-circle-o"></i></a>
+				<a href="#" title="" onClick={e => {e.preventDefault()}}><i 
+					onClick={ClearAllModelsAndPayloads}
+				className="la la-times-circle-o"></i></a>
 			</div>
 		</div>
     )
