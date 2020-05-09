@@ -1,6 +1,6 @@
 import React , { useState } from 'react'
 
-const PostJob = ({ClearAllModelsAndPayloads}) => {
+const PostJob = ({ClearAllModelsAndPayloads , SavePost}) => {
 	const [form, setform] = useState({
 		title:"",
 		pricefrom:0,
@@ -17,7 +17,7 @@ const PostJob = ({ClearAllModelsAndPayloads}) => {
 		const formData = {...form};
 		const skills = formData.skills.split(",").map(skill => skill.trim());
 		formData.skills = skills;
-		console.log(formData);
+		SavePost(formData);
 	}
     return (
         <div className="post-popup job_post active">

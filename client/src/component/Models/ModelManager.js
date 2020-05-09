@@ -1,11 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import PostJob from '../forms/PostJob';
+import { savePost } from '../../store/actions/PostActions';
 
-const ModelManager = ({ ModelName , payload , ClearAllModelsAndPayloads }) => {
+const ModelManager = ({ ModelName , payload , ClearAllModelsAndPayloads , SavePost}) => {
     switch ( ModelName ){
         case 'OpenPostJobForNewPost':
-            return <PostJob ClearAllModelsAndPayloads={ClearAllModelsAndPayloads} />
+            return <PostJob
+            SavePost={SavePost}
+            ClearAllModelsAndPayloads={ClearAllModelsAndPayloads} />
         case 'ClearAllModelsAndPayloads':
             return null;
         default:
@@ -21,7 +24,8 @@ const mapState = state => {
 }
 const mapDispatch = dispatch => {
     return {
-        ClearAllModelsAndPayloads:() => dispatch({type:'ClearAllModelsAndPayloads'})
+        ClearAllModelsAndPayloads:() => dispatch({type:'ClearAllModelsAndPayloads'}),
+        SavePost:data => dispatch(savePost(data)) 
     }
 }
 export default connect( mapState , mapDispatch )(ModelManager);
