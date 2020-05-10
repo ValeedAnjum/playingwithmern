@@ -23,6 +23,7 @@ export const savePost = ({ title , pricefrom , priceto , skills , description })
     }
 }
 
+
 export const deletePost = id => async dispatch => {
     try {
         const res = await axios.delete(`/api/jobs/delete/${id}`);
